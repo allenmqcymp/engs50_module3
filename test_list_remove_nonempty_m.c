@@ -50,7 +50,7 @@ int main(int argc, char * argv[]) {
     // test removal of car3
     car_t *cp = lremove("abc123");
 
-    if (strcmp(cp->plate, "abc123") == 0) {
+    if (strcmp(cp->plate, "abc123") != 0) {
         exit(EXIT_FAILURE);
     }
 
