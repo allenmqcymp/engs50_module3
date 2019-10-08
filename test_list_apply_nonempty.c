@@ -26,6 +26,7 @@ int main(int argc, char * argv[]) {
     lput(&car0);
 
     car0.next = &car1;
+    car1.next = NULL;
 
     lapply(&f);
 
