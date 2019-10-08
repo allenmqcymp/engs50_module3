@@ -1,0 +1,18 @@
+
+# Object files and libraries
+*.o
+*.a
+*.gch
+
+# emacs files
+*~
+\#*\#
+.\#*
+
+# debugging symbols
+*.dYSM
+
+# mac
+.DS_Store
+
+
