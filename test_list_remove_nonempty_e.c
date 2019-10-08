@@ -48,18 +48,21 @@ int main(int argc, char * argv[]) {
     // make a list
     lput(&car0);
 
-    // test removal of car3
+    // test removal of car4
     car_t *cp = lremove("abc124");
 
     if (strcmp(cp->plate, "abc124") != 0) {
+        printf("not abc 124\n");
         exit(EXIT_FAILURE);
     }
 
     if (cp->year != 2004) {
+        printf("not 2004\n");
         exit(EXIT_FAILURE);
     }
 
     if (fabs(cp->price - 5000.0) >= 0.001) {
+        printf("not 5k\n");
         exit(EXIT_FAILURE);
     }
 
