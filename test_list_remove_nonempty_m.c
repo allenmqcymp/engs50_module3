@@ -62,9 +62,11 @@ int main(int argc, char * argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    // check that the remainder of the list is correct
-    // should be car0, car1, car2, car4
-    car_t arr[4] = {car0, car1, car2, car4};
+    car_t arr[4];
+    arr[0] = car0;
+    arr[1] = car1;
+    arr[2] = car2;
+    arr[3] = car4;
     int i = 0;
     for (car_t *p=&car0; p != NULL; p=p->next) {
         if (strcmp(p->plate, arr[i].plate) == 0) {
@@ -77,7 +79,7 @@ int main(int argc, char * argv[]) {
         }
         // check that the next element is valid
         else  {
-            if (p->next != &arr[i+1])
+            if (p->next != arr[i].next)
                 exit(EXIT_FAILURE);
         }
         i++;
