@@ -23,8 +23,9 @@ int main(int argc, char * argv[]) {
 
     double old_car0_price = car0.price;
 
-    lput(&car1);
     lput(&car0);
+
+    car0.next = &car1;
 
     lapply(&f);
 
