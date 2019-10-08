@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Allen Ma, driver code for testing list
+# dependency - runtest.sh placed in ~/bin
+
+for f in test_list*
+do
+    runtest.sh "./${f}"
+done
+
