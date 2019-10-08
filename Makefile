@@ -1,4 +1,4 @@
-CFLAGS=-Wall -pedantic -std=c11 -I.
+CFLAGS=-Wall -pedantic -std=c11 -I. -g
 CC=gcc
 LIBS=-lm
 
