@@ -8,10 +8,12 @@ int main(int argc, char * argv[]) {
     car_t car1;
     strcpy(car1.plate, "abc121");
     car1.price = 2000.0;
+    car1.next = NULL;
 
     car_t car0;
     strcpy(car0.plate, "abc120");
     car0.price = 1000.0;
+    car0.next = NULL;
 
     lput(&car1);
     int32_t res = lput(&car0);

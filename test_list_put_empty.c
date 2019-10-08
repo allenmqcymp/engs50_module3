@@ -11,6 +11,7 @@ int main(int argc, char * argv[]) {
     car_t car0;
     strcpy(car0.plate, "abc120");
     car0.price = 1000.0;
+    car0.next = NULL;
 
     int32_t res = lput(&car0);
 

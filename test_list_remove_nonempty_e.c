@@ -25,6 +25,7 @@ int main(int argc, char * argv[]) {
     car1.next = &car2;
     car2.next = &car3;
     car3.next = &car4;
+    car4.next = NULL;
 
     strcpy(car0.plate, "abc120");
     strcpy(car1.plate, "abc121");
