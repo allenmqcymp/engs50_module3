@@ -14,7 +14,7 @@ int main(int argc, char * argv[]) {
     car_t *cp = lget();
 
     if (cp != &car0) {
-        fprintf(stderr, "error: cp is %p when it should be %p\n", cp, &car0);
+        fprintf(stderr, "error: cp is %p when it should be %p\n", (void *) cp, (void *) &car0);
         exit(EXIT_FAILURE);
     }
     exit(EXIT_SUCCESS);

@@ -67,8 +67,9 @@ int main(int argc, char * argv[]) {
                 exit(EXIT_FAILURE);
         }
         // check that the next element is valid
-        else (p->next != &arr[i+1]) {
-            exit(EXIT_FAILURE);
+        else {
+            if (p->next != &arr[i+1])
+                exit(EXIT_FAILURE);
         }
         i++;
     }

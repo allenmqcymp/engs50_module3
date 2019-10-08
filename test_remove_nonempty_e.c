@@ -7,7 +7,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
+
 #include "list.h"
+
 
 
 int main(int argc, char * argv[]) {
@@ -47,7 +50,7 @@ int main(int argc, char * argv[]) {
     // test removal of car3
     car_t *cp = lremove("abc124");
 
-    if (strcmp(cp->plate, "abc124") == 0) {
+    if (strcmp(cp->plate, "abc124") != 0) {
         exit(EXIT_FAILURE);
     }
 
@@ -64,7 +67,7 @@ int main(int argc, char * argv[]) {
     car_t arr[4] = {car0, car1, car2, car3};
     int i = 0;
     for (car_t *p=&car0; p != NULL; p=p->next) {
-        if (strcmp(p->plate, arr[i].plate) == 0) {
+        if (strcmp(p->plate, arr[i].plate) != 0) {
             exit(EXIT_FAILURE);
         }
         // there should be no more cars after car4
@@ -73,8 +76,9 @@ int main(int argc, char * argv[]) {
                 exit(EXIT_FAILURE);
         }
         // check that the next element is valid
-        else (p->next != &arr[i+1]) {
-            exit(EXIT_FAILURE);
+        else {
+            if (p->next != &arr[i+1]) 
+                exit(EXIT_FAILURE);
         }
         i++;
     }
