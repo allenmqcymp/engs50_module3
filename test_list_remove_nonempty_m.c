@@ -67,9 +67,10 @@ int main(int argc, char * argv[]) {
     arr[1] = car1;
     arr[2] = car2;
     arr[3] = car4;
+
     int i = 0;
     for (car_t *p=&car0; p != NULL; p=p->next) {
-        if (strcmp(p->plate, arr[i].plate) == 0) {
+        if (strcmp(p->plate, arr[i].plate) != 0) {
             exit(EXIT_FAILURE);
         }
         // there should be no more cars after car4

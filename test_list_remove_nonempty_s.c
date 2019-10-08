@@ -65,7 +65,7 @@ int main(int argc, char * argv[]) {
 
     int i = 0;
     for (car_t *p=&car1; p != NULL; p=p->next) {
-        if (strcmp(p->plate, arr[i].plate) == 0) {
+        if (strcmp(p->plate, arr[i].plate) != 0) {
             exit(EXIT_FAILURE);
         }
         // there should be no more cars after car3
