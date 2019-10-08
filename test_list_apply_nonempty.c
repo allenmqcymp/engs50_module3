@@ -13,11 +13,15 @@ int main(int argc, char * argv[]) {
 
     car_t car1;
     strcpy(car1.plate, "abc121");
-    double old_car1_price = car1.price = 2000.0;
+    car1.price = 2000.0;
+
+    double old_car1_price = car1.price;
 
     car_t car0;
     strcpy(car0.plate, "abc120");
-    double old_car0_price = car0.price = 1000.0;
+    car0.price = 1000.0;
+
+    double old_car0_price = car0.price;
 
     lput(&car1);
     lput(&car0);
