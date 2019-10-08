@@ -12,6 +12,8 @@ int main(int argc, char * argv[]) {
     car0.price = 1000.0;
     car0.next = NULL;
 
+    lput(&car0);
+
     car_t *cp = lget();
 
     if (cp != &car0) {
