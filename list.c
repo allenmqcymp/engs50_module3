@@ -58,15 +58,26 @@ car_t *lremove(char *platep) {
         return NULL;
     }
 
-    car_t *curp = front;
-    car_t *f_curp;
-    while (curp != NULL) {
-        if (strcmp(curp->plate, platep) != 0) {
-            f_curp->next = curp->next;
-            break;
-        }
-        f_curp = curp;
-        curp = curp->next;
+    car_t *rp = NULL;
+    if (strcmp(front->plate, platep) == 0) {
+        rp = lget();
     }
-    return curp;
+    else {
+        car_t *curp = front->next;
+        car_t *f_curp = front;
+        if (curp) {
+            while (curp) {
+                if (strcmp(curp->plate, platep) == 0) {
+                    f_curp->next = curp->next;
+                    rp = curp;
+                    break;
+                }
+                f_curp = curp;
+                curp = curp->next;
+            }
+        }
+    }
+
+    return rp;
+
 }
