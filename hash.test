@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Allen Ma, driver code for testing list
+# dependency - runtest.sh placed in ~/bin
+
+for f in test_hash*
+do
+    # if it ends in .o or .c, then don't test it
+    if [ ${f: -2 } != ".c" ] && [ ${f: -2} != ".o" ]; then 
+        runtest.sh "./${f}"
+    fi 
+done
