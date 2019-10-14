@@ -13,7 +13,7 @@ fi
 for f in $1*
 do
     if [ ${f: -2} != ".c" ] && [ ${f: -2} != ".o" ]; then 
-        valgrind --leak-check=full --error-exitcode=1 "./${f}"
+	valgrind --leak-check=full --error-exitcode=1 "./${f}" >& /dev/null
         RESVAL=$?
         # decide what to print based on the result
         if [ ${RESVAL} == 0 ] ; then
