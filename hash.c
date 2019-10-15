@@ -75,9 +75,7 @@ hashtable_t *hopen(uint32_t hsize) {
   htp->hsize = hsize;
   // for each bucket, allocate a queue
   for (int i = 0; i < hsize; i++) {
-    queue_t *q = qopen();
-    queue_t *ptr = (htp->table)[i];
-    ptr = q;
+    (htp->table)[i] = qopen();
   }
   if (htp == NULL) {
     printf("calloc failed to allocate hashtable\n");

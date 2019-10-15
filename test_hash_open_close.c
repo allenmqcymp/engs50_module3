@@ -16,7 +16,7 @@ int main(void) {
     // hashtable_t *htp = hopen(0);
     // hashtable_t *htperr = hopen(-1);
     // hashtable_t *htp1 = hopen(1);
-    hashtable_t *htp2 = hopen(100);
+    hashtable_t *htp2 = hopen(1);
 
     car_t fastcar;
     fastcar.next = NULL;
