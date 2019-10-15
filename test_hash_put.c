@@ -36,9 +36,22 @@ person_t make_person(const char *name, int age, double rate) {
  * Allocates memory for person_t
  */
 int test_put_one(hashtable_t *htp) {
-   person_t p = make_person("allen", 21, 21.21);
+    person_t p = make_person("allen", 21, 21.21);
+    person_t p2 = make_person("john", 21, 21.21);
+    person_t p3 = make_person("sam", 21, 21.21);
     int32_t res =  hput(htp, (void *) &p, "allen", sizeof("allen"));
-    return res;
+    if (res != 0) {
+		return 1;
+    }
+	int32_t res2 = hput(htp, (void *) &p2, "john", sizeof("john"));
+	if (res2 != 0) {
+		return 1;
+	}
+	int32_t res3 = hput(htp, (void *) &p3, "sam", sizeof("sam"));
+	if (res3 != 0) {
+		return 1; 
+	}
+    return 0;
 }
 
 
@@ -108,15 +121,15 @@ int main(void) {
 
     // this also implicitly tests that there can be more than one hashtable in existence
     // at the same time
-    hashtable_t *htp1 = hopen(100);
-    hashtable_t *htp2 = hopen(100);
-    hashtable_t *htp3 = hopen(500);
+    hashtable_t *htp1 = hopen(4);
+    // hashtable_t *htp2 = hopen(100);
+    // hashtable_t *htp3 = hopen(500);
 
     srand(time(NULL));
 
     if (test_put_one(htp1) != 0) {
-        printf("failed test put one\n");
-        exit(EXIT_FAILURE);
+    	printf("failed test put one\n");
+    	exit(EXIT_FAILURE);
     }
 
     // if (test_put_two(htp2) != 0) {
@@ -129,9 +142,9 @@ int main(void) {
     //     exit(EXIT_FAILURE);
     // }
 
-    hclose(htp3);
-    hclose(htp2);
-    hclose(htp3);
+    hclose(htp1);
+    // hclose(htp2);
+    // hclose(htp3);
 
     exit(EXIT_SUCCESS);
 }
