@@ -65,7 +65,9 @@ void* qget(queue_t *qp){
     }
     node_t *first_element = qp->front;
     qp->front = qp->front->next;
-    return first_element->data;
+    void *d = first_element->data;
+    free(first_element);
+    return d;
 }
 
 /* apply a function to every element of the queue */

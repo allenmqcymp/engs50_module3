@@ -140,6 +140,9 @@ void *hremove(hashtable_t *htp,
 	      bool (*searchfn)(void* elementp, const void* searchkeyp), 
 	      const char *key, 
 	      int32_t keylen) {
-  return NULL;
+  // get the correct index
+  uint32_t idx = SuperFastHash(key, keylen, htp->hsize);
+  queue_t *q_idx = (htp->table)[idx];
+  return qremove(q_idx, searchfn, key);
 }
 
