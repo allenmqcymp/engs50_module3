@@ -9,6 +9,9 @@
 \#*\#
 .\#*
 
+# vim files
+*.swp
+
 # debugging symbols
 *.dYSM
 
