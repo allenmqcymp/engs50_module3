@@ -1,5 +1,5 @@
 /* 
- * Stjepan Vrbić 10.8.2019
+ * Stjepan Vrbić, Allen Ma, Joe Signorelli 10.8.2019
  * queue.c -- implements a generic queue
  */
 #include <stdint.h>

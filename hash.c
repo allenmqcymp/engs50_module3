@@ -1,4 +1,5 @@
-/* 
+/*
+ * Allen ma, Stjepan Vrbic, Joe Signorelli 10.15.19 
  * hash.c -- implements a generic hash table as an indexed set of queues.
  *
  */

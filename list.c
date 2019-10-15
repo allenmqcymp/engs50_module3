@@ -1,3 +1,10 @@
+/*
+ * Allen Ma, Stjepan Vrbic, Joe Signorelli 10.15.19
+ * Implements linked list funcitonality specified in list.h
+ */
+
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
