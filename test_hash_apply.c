@@ -9,7 +9,6 @@
 #include <stdint.h>
 #include <string.h>
 #include "hash.h"
-#include "list.h"
 
 int main(void) {
 

@@ -6,6 +6,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <assert.h>
 #include "queue.h"
 
 /* 
@@ -75,9 +76,7 @@ hashtable_t *hopen(uint32_t hsize) {
   htp->hsize = hsize;
   // for each bucket, allocate a queue
   for (int i = 0; i < hsize; i++) {
-    queue_t *q = qopen();
-    queue_t *ptr = (htp->table)[i];
-    ptr = q;
+    (htp->table)[i] = qopen();
   }
   if (htp == NULL) {
     printf("calloc failed to allocate hashtable\n");
@@ -94,18 +93,19 @@ void hclose(hashtable_t *htp) {
     qclose(q);
   }
   // free the hashtable
+  free(htp->table);
   free(htp);
 }
 
-// /* hput -- puts an entry into a hash table under designated key 
-//  * returns 0 for success; non-zero otherwise
-//  */
-// int32_t hput(hashtable_t *htp, void *ep, const char *key, int keylen) {
-//   uint32_t idx = SuperFastHash(key, keylen, htp->hsize);
-//   // place the element at idx
-//   assert(idx >= 0 && idx <= htp->hsize);
-//   queue_t q = (htp->htable)[idx];
-//   int32_t qres = qput(q, ep);
-//   return qres;
-// }
+/* hput -- puts an entry into a hash table under designated key 
+ * returns 0 for success; non-zero otherwise
+ */
+int32_t hput(hashtable_t *htp, void *ep, const char *key, int keylen) {
+  uint32_t idx = SuperFastHash(key, keylen, htp->hsize);
+  // place the element at idx
+  assert(idx >= 0 && idx <= htp->hsize);
+  queue_t *q = (htp->table)[idx];
+  int32_t qres = qput(q, ep);
+  return qres;
+}
 
