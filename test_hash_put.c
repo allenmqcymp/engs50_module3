@@ -38,6 +38,7 @@ person_t *make_person(const char *name, int age, double rate) {
 int test_put_one(hashtable_t *htp) {
     person_t *pp = make_person("allen", 21, 21.21);
     int32_t res =  hput(htp, (void *) pp, "allen", sizeof("allen"));
+    printf("free one\n");
     free(pp);
     return res;
 }
