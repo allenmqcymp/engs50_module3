@@ -37,20 +37,15 @@ person_t make_person(const char *name, int age, double rate) {
  */
 int test_put_one(hashtable_t *htp) {
     person_t p = make_person("allen", 21, 21.21);
-    person_t p2 = make_person("john", 21, 21.21);
     person_t p3 = make_person("sam", 21, 21.21);
     int32_t res =  hput(htp, (void *) &p, "allen", sizeof("allen"));
     if (res != 0) {
-		return 1;
+	return 1;
     }
-	int32_t res2 = hput(htp, (void *) &p2, "john", sizeof("john"));
-	if (res2 != 0) {
-		return 1;
-	}
-	int32_t res3 = hput(htp, (void *) &p3, "sam", sizeof("sam"));
-	if (res3 != 0) {
-		return 1; 
-	}
+    int32_t res3 = hput(htp, (void *) &p3, "sam", sizeof("sam"));
+    if (res3 != 0) {
+	return 1; 
+    }
     return 0;
 }
 
