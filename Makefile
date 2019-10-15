@@ -16,7 +16,7 @@ TEST_QUEUE_CFILES:=$(wildcard test_queue*.c)
 QUEUE_TARGETS:=$(patsubst %.c,%,$(TEST_QUEUE_CFILES))
 QUEUE_OBJS:=$(patsubst %.c,%.o,$(TEST_QUEUE_CFILES))
 
-all: $(LIST_TARGETS) $(HASH_TARGETS)
+all: $(LIST_TARGETS) $(HASH_TARGETS) $(QUEUE_TARGETS)
 
 $(LIST_TARGETS) : %: %.o list.o
 	$(CC) $(CFLAGS) $< list.o -o $@ 
