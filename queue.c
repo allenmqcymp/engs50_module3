@@ -34,8 +34,6 @@ void qclose(queue_t *qp){
         temp = temp->next;
         free(prev);
     }
-    printf("queue \n");
-    fflush(stdout);
     free(qp);
 }  
 
