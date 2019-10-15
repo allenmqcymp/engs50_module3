@@ -5,6 +5,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 typedef struct node {
     struct node *next;
@@ -27,9 +28,11 @@ queue_t* qopen(void){
 /* deallocate a queue, frees everything in it */
 void qclose(queue_t *qp){
     node_t *temp = qp->front;
+    node_t *prev;
     while (temp != NULL){
-        free(temp);
+        prev = temp;
         temp = temp->next;
+        free(prev);
     }
     free(qp);
 }  
