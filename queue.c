@@ -60,6 +60,9 @@ int32_t qput(queue_t *qp, void *elementp){
 
 /* get the first first element from queue, removing it from the queue */
 void* qget(queue_t *qp){
+    if (qp->front == NULL){
+        return NULL;
+    }
     node_t *first_element = qp->front;
     qp->front = qp->front->next;
     return first_element->data;
@@ -109,17 +112,29 @@ void* qremove(queue_t *qp,
     while (curr != NULL){
         bool found = searchfn(curr->data, skeyp);
         if (found){
-            //check if it is the first or last element
-            if (curr == qp->front){
+            //if it is the only element
+            if (curr == qp-> front && curr == qp->back){
+                qp->front = NULL;
+                qp->back = NULL;
+                void *d = curr->data;
+                free(curr);
+                return d;
+            }else if (curr == qp->front){ //check if it is the first or last element
                 qp->front = curr->next;
-                return curr->data;
+                void *d = curr->data;
+                free (curr);
+                return d;
             }else if (curr == qp->back){
                 qp->back = prev;
                 prev->next = NULL;
-                return curr->data;
+                void *d = curr->data;
+                free(curr);
+                return d;
             }else{ //if it is neither the first or last element
                 prev->next = curr->next;
-                return curr->data;
+                void *d = curr->data;
+                free(curr);
+                return d;
             }
         }
         prev = curr;
