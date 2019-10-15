@@ -72,5 +72,6 @@ int main(void) {
     }
     printf("success");
     qclose(qp2);
+    qclose(qp);
     exit(EXIT_SUCCESS);
 }
