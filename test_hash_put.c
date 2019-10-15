@@ -117,8 +117,8 @@ int main(void) {
     // this also implicitly tests that there can be more than one hashtable in existence
     // at the same time
     hashtable_t *htp1 = hopen(4);
-    // hashtable_t *htp2 = hopen(100);
-    // hashtable_t *htp3 = hopen(500);
+    hashtable_t *htp2 = hopen(100);
+    hashtable_t *htp3 = hopen(500);
 
     srand(time(NULL));
 
@@ -127,19 +127,19 @@ int main(void) {
     	exit(EXIT_FAILURE);
     }
 
-    // if (test_put_two(htp2) != 0) {
-    //     printf("failed test put two\n");
-    //     exit(EXIT_FAILURE);
-    // }
+    if (test_put_two(htp2) != 0) {
+        printf("failed test put two\n");
+        exit(EXIT_FAILURE);
+    }
 
-    // if (test_put_three(htp3) != 0) {
-    //     printf("failed test put three\n");
-    //     exit(EXIT_FAILURE);
-    // }
+    if (test_put_three(htp3) != 0) {
+        printf("failed test put three\n");
+        exit(EXIT_FAILURE);
+    }
 
     hclose(htp1);
-    // hclose(htp2);
-    // hclose(htp3);
+    hclose(htp2);
+    hclose(htp3);
 
     exit(EXIT_SUCCESS);
 }
