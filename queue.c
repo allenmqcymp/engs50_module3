@@ -149,8 +149,21 @@ void* qremove(queue_t *qp,
  * q2 is dealocated, closed, and unusable upon completion 
  */
 void qconcat(queue_t *q1p, queue_t *q2p){
-    q1p->back->next = q2p->front;
-    q1p->back = q2p->back;
-    free(q2p);
+	if (q1p->front == NULL && q2p->front == NULL){
+		free(q2p);
+	}
+	else if(q1p->front != NULL && q2p->front == NULL){
+		free(q2p);
+	}
+	else if(q1p->front == NULL && q2p->front != NULL){
+		q1p->front = q2p->front;
+		q1p->back = q2p->back;
+		free(q2p);
+	}
+	else{
+		q1p->back->next = q2p->front;
+		q1p->back = q2p->back;
+		free(q2p);
+	}
 }
 
