@@ -44,11 +44,11 @@ int test_put_one(hashtable_t *htp) {
 
 int test_put_two(hashtable_t *htp) {
     char *arr[5];
-    strcpy(arr[0], "joey");
-    strcpy(arr[1], "askjfhklajsdhfkjhklgajghlajshgkljhasgkjaskdjhfak");
-    strcpy(arr[2], "dmitry");
-    strcpy(arr[3], "laurent");
-    strcpy(arr[4], "giovanni");
+    arr[0] = "joey";
+    arr[1] = "askjfhklajsdhfkjhklgajghlajshgkljhasgkjaskdjhfak";
+    arr[2] = "dmitry";
+    arr[3] = "laurent";
+    arr[4] = "giovanni";
     for (int i = 0; i < 50; i++) {
         char *randname = arr[rand() % 5];
         int randage = rand() % 100;
