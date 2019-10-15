@@ -6,6 +6,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <assert.h>
 #include "queue.h"
 
 /* 
@@ -103,7 +104,7 @@ int32_t hput(hashtable_t *htp, void *ep, const char *key, int keylen) {
   uint32_t idx = SuperFastHash(key, keylen, htp->hsize);
   // place the element at idx
   assert(idx >= 0 && idx <= htp->hsize);
-  queue_t *q = (htp->htable)[idx];
+  queue_t *q = (htp->table)[idx];
   int32_t qres = qput(q, ep);
   return qres;
 }

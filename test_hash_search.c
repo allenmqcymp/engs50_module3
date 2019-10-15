@@ -12,6 +12,7 @@
 #include "list.h"
 
 int main(void) {
+
     hashtable_t *htp2 = hopen(500);
 
     if (htp2 == NULL) {

@@ -9,9 +9,9 @@
 #include <stdint.h>
 #include <string.h>
 #include "hash.h"
-#include "list.h"
 
 int main(void) {
+
     hashtable_t *htp2 = hopen(500);
 
     if (htp2 == NULL) {
