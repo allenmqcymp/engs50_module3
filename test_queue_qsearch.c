@@ -39,22 +39,21 @@ int main(void) {
     person_t person4 = {"selim", 24, 5};
     person_t person5 = {"musab", 25, 5};
     
-     if (qput(qp, (void *)&person1) != 0){
-         exit(EXIT_FAILURE);
-     }
-        fflush(stdout);
+    if (qput(qp, (void *)&person1) != 0){
+        exit(EXIT_FAILURE);
+    }
     if (qput(qp, (void *)&person2) != 0){
-         exit(EXIT_FAILURE);
-     }
-     if (qput(qp, (void *)&person3) != 0){
-         exit(EXIT_FAILURE);
-     }
-     if (qput(qp, (void *)&person4) != 0){
-         exit(EXIT_FAILURE);
-     }
-     if (qput(qp, (void *)&person5) != 0){
-         exit(EXIT_FAILURE);
-     }
+        exit(EXIT_FAILURE);
+    }
+    if (qput(qp, (void *)&person3) != 0){
+        exit(EXIT_FAILURE);
+    }
+    if (qput(qp, (void *)&person4) != 0){
+        exit(EXIT_FAILURE);
+    }
+    if (qput(qp, (void *)&person5) != 0){
+        exit(EXIT_FAILURE);
+    }
     
     person_t search = {"aaaa", 23, 5};
     person_t *joe = (person_t *)qsearch(qp, &search_fun, &search);

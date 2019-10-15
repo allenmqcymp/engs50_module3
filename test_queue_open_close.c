@@ -36,7 +36,13 @@ int main(void) {
     person_t p2 = make_person("allen", 22, 10.00);
 
     int32_t res1 = qput(qp, (void *) &p);
+    if (res1 != 0) {
+        exit(EXIT_FAILURE);
+    }
     int32_t res2 = qput(qp, (void *) &p2);
+    if (res2 != 0) {
+        exit(EXIT_FAILURE);
+    }
 
     qclose(qp);
 

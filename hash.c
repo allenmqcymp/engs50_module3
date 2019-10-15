@@ -125,8 +125,12 @@ void *hsearch(hashtable_t *htp,
 	      bool (*searchfn)(void* elementp, const void* searchkeyp), 
 	      const char *key, 
 	      int32_t keylen) {
-          
-        }
+
+  // get the correct index
+  uint32_t idx = SuperFastHash(key, keylen, htp->hsize);
+  queue_t *q_idx = (htp->table)[idx];
+  return qsearch(q_idx, searchfn, key);
+}
 
 /* hremove -- removes and returns an entry under a designated key
  * using a designated search fn -- returns a pointer to the entry or
@@ -135,5 +139,7 @@ void *hsearch(hashtable_t *htp,
 void *hremove(hashtable_t *htp, 
 	      bool (*searchfn)(void* elementp, const void* searchkeyp), 
 	      const char *key, 
-	      int32_t keylen);
+	      int32_t keylen) {
+  return NULL;
+}
 
